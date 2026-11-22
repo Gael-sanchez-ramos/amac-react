@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables (Regla de seguridad Sección 7: NO subir .env.local)
+.env
+.env.local
+.env.*.local
+
+# macOS / Editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
