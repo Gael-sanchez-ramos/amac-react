@@ -22,7 +22,7 @@ Aplicación web tipo SPA (*Single Page Application*) para la plataforma de emple
 ## 2. Tecnologías utilizadas y cómo correr el proyecto localmente
 
 ### Tecnologías
-- **Frontend:** React 18, Vite 6, React Router DOM 6, CSS3 con variables personalizadas y diseño accesible (WCAG AA, texto base $\ge 18\text{ px}$).
+- **Frontend:** React 18, Vite 6, React Router DOM 6, CSS3 con variables personalizadas y diseño accesible (texto ≥ 18 px, foco visible, 320–1440 px).
 - **Backend y Base de Datos:** Supabase (PostgreSQL, Supabase Auth, Row Level Security y Triggers en PL/pgSQL).
 - **Despliegue continuo:** Vercel con soporte SPA (`vercel.json`) y HTTPS.
 
@@ -63,54 +63,7 @@ Aplicación web tipo SPA (*Single Page Application*) para la plataforma de emple
 
 ## 4. Diagrama de la base de datos y políticas RLS
 
-### Diagrama Entidad-Relación (PostgreSQL en Supabase)
-
-```mermaid
-erDiagram
-    AUTH_USERS ||--|| PERFILES : "id (ON DELETE CASCADE)"
-    PERFILES ||--o{ VACANTES : "empresa_id"
-    VACANTES ||--o{ SOLICITUDES : "vacante_id"
-    PERFILES ||--o{ SOLICITUDES : "candidato_id"
-
-    PERFILES {
-        uuid id PK, FK
-        text rol "candidato | empresa | admin"
-        text nombre
-        text telefono
-        int edad "18..120"
-        text colonia
-        text experiencia
-        text giro "solo empresas"
-        boolean aprobado "default false"
-        timestamptz creado_en
-    }
-
-    VACANTES {
-        bigint id PK
-        uuid empresa_id FK
-        text titulo
-        numeric sueldo "> 0"
-        text ubicacion
-        text horario "Matutino | Vespertino | Medio tiempo | Fines de semana"
-        text categoria
-        text descripcion
-        text requisitos
-        text prestaciones
-        text telefono_contacto "nullable"
-        text estado "activa | pausada | cerrada"
-        timestamptz creada_en
-    }
-
-    SOLICITUDES {
-        bigint id PK
-        bigint vacante_id FK
-        uuid candidato_id FK
-        text estatus "Enviada | En revisión | Aceptada | Rechazada | Cancelada"
-        timestamptz creada_en
-    }
-```
-
-### Captura del Schema Visualizer de Supabase
+### Diagrama de la base de datos (Schema Visualizer de Supabase)
 
 ![Schema Visualizer de Supabase](public/img/schema-visualizer.png)
 
