@@ -17,6 +17,9 @@ export function AuthProvider({ children }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_evento, nuevaSesion) => {
+      if (nuevaSesion?.user?.id) {
+        setCargando(true)
+      }
       setSesion(nuevaSesion)
     })
 

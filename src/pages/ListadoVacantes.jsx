@@ -20,9 +20,10 @@ export default function ListadoVacantes() {
         .eq('estado', 'activa')
         .order('creada_en', { ascending: false })
 
-      if (busqueda) {
+      const termino = busqueda.replace(/[(),]/g, ' ').trim()
+      if (termino) {
         consulta = consulta.or(
-          `titulo.ilike.%${busqueda}%,ubicacion.ilike.%${busqueda}%`
+          `titulo.ilike.%${termino}%,ubicacion.ilike.%${termino}%`
         )
       }
       if (horario) {

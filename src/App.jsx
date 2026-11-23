@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Encabezado from './components/Encabezado'
 import Pie from './components/Pie'
 import RutaProtegida from './components/RutaProtegida'
@@ -66,6 +66,7 @@ export default function App() {
               </RutaProtegida>
             }
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Pie />

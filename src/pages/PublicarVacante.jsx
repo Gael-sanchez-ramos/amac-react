@@ -204,7 +204,7 @@ export default function PublicarVacante() {
         </fieldset>
 
         <fieldset>
-          <legend>Contacto telefónico (opcional — RF-019)</legend>
+          <legend>Contacto telefónico (opcional)</legend>
           <div className="pila">
             <div className="aceptacion">
               <div className="opcion-aceptacion">

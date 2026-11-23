@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 export default function RegistroCandidato({ rolInicial = 'candidato' }) {
   const [tipoRol, setTipoRol] = useState(rolInicial) // 'candidato' | 'empresa'
+
+  useEffect(() => {
+    setTipoRol(rolInicial)
+  }, [rolInicial])
   const [nombre, setNombre] = useState('')
   const [correo, setCorreo] = useState('')
   const [contrasena, setContrasena] = useState('')
@@ -373,7 +377,7 @@ export default function RegistroCandidato({ rolInicial = 'candidato' }) {
         {tipoRol === 'candidato' && (
           <p className="texto-centrado">
             Tu cuenta necesita la revisión y aprobación de AMAC antes de poder
-            postularte a vacantes (RF-054).
+            postularte a vacantes.
           </p>
         )}
 

@@ -77,8 +77,8 @@ export default function Perfil() {
         <h1>Mi perfil</h1>
         <p>
           {esEmpresa
-            ? 'Actualiza los datos de contacto y giro de tu empresa (RF-017).'
-            : 'Mantén al día tus datos de contacto, colonia y experiencia laboral (RF-014).'}
+            ? 'Actualiza los datos de contacto y giro de tu empresa.'
+            : 'Mantén al día tus datos de contacto, colonia y experiencia laboral.'}
         </p>
       </div>
 
