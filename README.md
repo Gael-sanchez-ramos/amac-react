@@ -105,8 +105,9 @@ erDiagram
     }
 ```
 
-> *(Si deseas incluir la captura del Schema Visualizer de Supabase, guárdala como `public/img/schema-visualizer.png` y se mostrará aquí)*:
-> `![Schema Visualizer de Supabase](public/img/schema-visualizer.png)`
+### Captura del Schema Visualizer de Supabase
+
+![Schema Visualizer de Supabase](public/img/schema-visualizer.png)
 
 ### Explicación de las políticas Row Level Security (RLS)
 
