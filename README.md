@@ -2,6 +2,11 @@
 
 Aplicación web tipo SPA (*Single Page Application*) para la plataforma de empleo de personas adultas mayores de **AMAC**, construida con **React (Vite)**, **Supabase (PostgreSQL + Auth + Row Level Security)** y desplegada en **Vercel**.
 
+## Enlaces del proyecto
+
+- **Sitio publicado en Vercel:** [amac-react-vert.vercel.app](https://amac-react-vert.vercel.app/)
+- **Repositorio en GitHub:** [Gael-sanchez-ramos/amac-react](https://github.com/Gael-sanchez-ramos/amac-react)
+
 ---
 
 ## 1. Integrantes del equipo y aportaciones
