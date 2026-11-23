@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react'
-import { supabase, supabaseConfigurado } from '../lib/supabase'
+import { supabase } from '../lib/supabase'
 
 const AuthContext = createContext(null)
 
@@ -10,16 +10,8 @@ export function AuthProvider({ children }) {
 
   // 1) Escuchar la sesión: al abrir la página, al iniciar y al cerrar sesión
   useEffect(() => {
-    if (!supabaseConfigurado) {
-      setSesion(null)
-      setCargando(false)
-      return
-    }
-
     supabase.auth.getSession().then(({ data }) => {
       setSesion(data?.session ?? null)
-    }).catch(() => {
-      setSesion(null)
     })
 
     const {
@@ -36,7 +28,7 @@ export function AuthProvider({ children }) {
   const usuarioId = sesion?.user?.id
 
   const cargarPerfil = useCallback(async (uid) => {
-    if (!uid || !supabaseConfigurado) {
+    if (!uid) {
       setPerfil(null)
       setCargando(false)
       return

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase, supabaseConfigurado } from '../lib/supabase'
-import { VACANTES_DEMO } from '../lib/datosDemo'
+import { supabase } from '../lib/supabase'
 import TarjetaVacante from '../components/TarjetaVacante'
 
 export default function ListadoVacantes() {
@@ -14,21 +13,6 @@ export default function ListadoVacantes() {
   useEffect(() => {
     async function cargar() {
       setCargando(true)
-
-      if (!supabaseConfigurado) {
-        const filtradas = VACANTES_DEMO.filter((v) => {
-          const coincideTexto =
-            !busqueda ||
-            v.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
-            v.ubicacion.toLowerCase().includes(busqueda.toLowerCase())
-          const coincideHorario = !horario || v.horario === horario
-          const coincideCategoria = !categoria || v.categoria === categoria
-          return coincideTexto && coincideHorario && coincideCategoria
-        })
-        setVacantes(filtradas)
-        setCargando(false)
-        return
-      }
 
       let consulta = supabase
         .from('vacantes')

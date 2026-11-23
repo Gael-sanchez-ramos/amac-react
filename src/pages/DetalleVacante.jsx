@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { supabase, supabaseConfigurado } from '../lib/supabase'
-import { VACANTES_DEMO } from '../lib/datosDemo'
+import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 
 export default function DetalleVacante() {
@@ -18,14 +17,6 @@ export default function DetalleVacante() {
   useEffect(() => {
     async function cargarVacante() {
       setCargando(true)
-      if (!supabaseConfigurado) {
-        const encontrada =
-          VACANTES_DEMO.find((v) => String(v.id) === String(id)) ||
-          VACANTES_DEMO[0]
-        setVacante(encontrada)
-        setCargando(false)
-        return
-      }
 
       const { data, error } = await supabase
         .from('vacantes')
